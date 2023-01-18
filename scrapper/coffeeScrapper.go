@@ -47,378 +47,29 @@ func StartCoffeeScrape() {
 	var summary string
 	var coffees_ []coffees
 
-	var nodes []*cdp.Node
-
 	err := chromedp.Run(ctx,
 		chromedp.Navigate(`https://www.koke.kr/`),
-		//chromedp.Click(`a.style_text__qlqJK`, chromedp.NodeVisible),
-		//chromedp.Text(`a.style_text__qlqJK`, &example),
-		//chromedp.Nodes("a", &nodes),
-		//chromedp.Text([]cdp.NodeID{75}, &example, chromedp.ByNodeID),
 		chromedp.Click(`ul.style_items__Q896m li+li`, chromedp.NodeVisible),
-		//chromedp.Text(`.items_coffee__4sr50 a`, &example),
-		//chromedp.SendKeys(`div.style_listWrapper__BVuv_`, kb.ArrowDown),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second), chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second), chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second), chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second), chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second), chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second), chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, exp, err := runtime.Evaluate(`window.scrollTo(0,document.body.scrollHeight);`).Do(ctx)
-			if err != nil {
-				return err
-			}
-			if exp != nil {
-				return exp
-			}
-			return nil
-		}),
-		chromedp.Sleep(1*time.Second),
-
-		//chromedp.ActionFunc(func(context.Context) error {
-		//	log.Printf("waiting 3s for box to become visible")
-		//	return nil
-		//}),
-		//
-		//chromedp.ActionFunc(func(context.Context) error {
-		//	log.Printf(">>>>>>>>>>>>>>>>>>>> BOX1 IS VISIBLE")
-		//	return nil
-		//}),
-		//chromedp.WaitVisible(`#box2`),
-		//chromedp.ActionFunc(func(context.Context) error {
-		//	log.Printf(">>>>>>>>>>>>>>>>>>>> BOX2 IS VISIBLE")
-		//	return nil
-		//}),
-		chromedp.Nodes(".items_coffee__4sr50 a", &nodes),
-		//chromedp.Text(`ul.style_items__Q896m`, &example),
-		//chromedp.WaitVisible(`body`),
-		//chromedp.Text(`.items_coffees__jhp3v > .items_coffee__4sr50> a > .item_wrapper__BdFuT > .item_characters__AJbwz`, &example),
 	)
-	if err != nil {
-		log.Fatal(err)
+	errCheck(err)
+
+	var res *runtime.RemoteObject
+	for i := 0; i < 10; i++ {
+		err := chromedp.Run(ctx,
+			chromedp.Evaluate("window.scrollTo(0,document.body.scrollHeight);", &res),
+			chromedp.Sleep(1*time.Second),
+		)
+		errCheck(err)
 	}
+
+	var nodes []*cdp.Node
+	err = chromedp.Run(ctx,
+		chromedp.Nodes(".items_coffee__4sr50 a", &nodes),
+	)
+	errCheck(err)
+
 	for _, n := range nodes {
 		u := n.AttributeValue("href")
-		//fmt.Println(u)
 		err := chromedp.Run(ctx,
 			chromedp.Navigate(`https://www.koke.kr`+u),
 			chromedp.Text(".style_subscription__XvQjk", &example),
@@ -429,19 +80,12 @@ func StartCoffeeScrape() {
 			chromedp.Text(".style_wrapper__xSR1v > ul", &cookingType),
 			chromedp.Attributes(".style_center__J3hY5 > div > img ", &imgURL),
 			chromedp.Text(".style_note__dPg4i  ", &summary),
-
 			chromedp.Text(".style_items__PrjWC", &style),
 			chromedp.Text(".style_title__aZIt9", &roastery),
 		)
 		if err != nil {
 			log.Fatal(err)
 		}
-
-		log.Println(summary)
-		//log.Println(priceNweight)
-		//log.Println(flavor)
-		//log.Println(style)
-		//log.Println(roastery)
 
 		var tempSlice []string
 		var tempSlice2 []string
@@ -477,15 +121,6 @@ func StartCoffeeScrape() {
 			CookingType:    tempCookingType,
 			Summary:        summary,
 		}
-		log.Println(c.CoffeeName)
-		//log.Println(c.Price)
-		//log.Println(c.Weight)
-		//log.Println(c.Flavor)
-		//log.Println(c.Roastery)
-		//log.Println(c.Style)
-		//log.Println(c.ImgURL)
-		//log.Println(c.ExtractionType)
-		//log.Println(c.CookingType)
 		coffees_ = append(coffees_, c)
 	}
 	e, err := json.Marshal(coffees_)
@@ -498,15 +133,8 @@ func StartCoffeeScrape() {
 	if err2 != nil {
 		log.Fatal(err2)
 	}
-	f.Close()
+	err = f.Close()
+	errCheck(err)
 	fmt.Println("야호")
 
 }
-
-//
-//type coffees struct {
-//	flavor     []string
-//	price      string
-//	coffeeName string
-//	weight     string
-//}
