@@ -1,4 +1,4 @@
-package tempMain
+package scrapper
 
 import (
 	"context"
@@ -26,7 +26,7 @@ type coffees struct {
 	Style          []string `json:"style"`
 }
 
-func main() {
+func StartCoffeeScrape() {
 	// create context
 	ctx, cancel := chromedp.NewContext(
 		context.Background(),
