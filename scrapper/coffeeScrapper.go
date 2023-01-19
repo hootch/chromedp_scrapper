@@ -27,13 +27,10 @@ type coffees struct {
 }
 
 func StartCoffeeScrape() {
-	// create context
 	ctx, cancel := chromedp.NewContext(
 		context.Background(),
-		//chromedp.WithDebugf(log.Printf),
 	)
 	defer cancel()
-	// navigate to a page
 	var example string
 
 	var style string
@@ -52,7 +49,7 @@ func StartCoffeeScrape() {
 		chromedp.Click(`ul.style_items__Q896m li+li`, chromedp.NodeVisible),
 	)
 	errCheck(err)
-
+	fmt.Println("갸아악 시작")
 	var res *runtime.RemoteObject
 	for i := 0; i < 10; i++ {
 		err := chromedp.Run(ctx,
@@ -136,5 +133,4 @@ func StartCoffeeScrape() {
 	err = f.Close()
 	errCheck(err)
 	fmt.Println("야호")
-
 }

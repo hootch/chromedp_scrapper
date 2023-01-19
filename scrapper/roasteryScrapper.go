@@ -77,7 +77,6 @@ func StartRoasteryScrape() {
 			}
 		}
 		searchCtx, searchCancel := context.WithTimeout(ctx, 1*time.Second)
-		defer searchCancel()
 
 		err1 := chromedp.Run(searchCtx,
 			chromedp.Text("ul.style_awards__M0Wi3", &awards),
@@ -85,13 +84,10 @@ func StartRoasteryScrape() {
 			chromedp.Text(".style_awards__M0Wi3", &awards),
 		)
 		if err1 != nil {
-			//fmt.Println("Didn't find Ack")
-			//return
 		}
 		errCheck(err)
 
 		searchCtx2, searchCancel := context.WithTimeout(ctx, 1*time.Second)
-		defer searchCancel()
 
 		var addr map[string]string
 		err2 := chromedp.Run(searchCtx2,
@@ -106,15 +102,12 @@ func StartRoasteryScrape() {
 			}
 		}
 		searchCtx3, searchCancel := context.WithTimeout(ctx, 1*time.Second)
-		defer searchCancel()
 
 		var insta map[string]string
 		err3 := chromedp.Run(searchCtx3,
 			chromedp.Attributes("ul.style_links__0JMv1 > li+li > a", &insta),
 		)
 		if err3 != nil {
-			//fmt.Println("Didn't find Ack")
-			//return
 		}
 		var instaHref string
 		for key, val := range insta {
@@ -125,7 +118,6 @@ func StartRoasteryScrape() {
 
 		searchCtx4, searchCancel := context.WithTimeout(ctx, 1*time.Second)
 		defer searchCancel()
-
 		var web map[string]string
 		err4 := chromedp.Run(searchCtx4,
 			chromedp.Attributes("ul.style_links__0JMv1 > li+li+li > a", &web),
@@ -158,18 +150,18 @@ func StartRoasteryScrape() {
 		}
 		roasterys = append(roasterys, c)
 	}
-	e, err := json.Marshal(roasterys)
-	f, err := os.Create("roasterys.json")
 
-	if err != nil {
-		log.Fatal(err)
-	}
+	e, err := json.Marshal(roasterys)
+	errCheck(err)
+
+	f, err := os.Create("roasterys.json")
+	errCheck(err)
+
 	_, err2 := f.WriteString(string(e))
-	if err2 != nil {
-		log.Fatal(err2)
-	}
-	f.Close()
-	fmt.Println("야호")
+	errCheck(err2)
+
+	err = f.Close()
+	errCheck(err)
 
 }
 
