@@ -121,7 +121,7 @@ func StartCoffeeScrape() {
 		coffees_ = append(coffees_, c)
 	}
 	e, err := json.Marshal(coffees_)
-	f, err := os.Create("data.json")
+	f, err := os.Create("coffee.json")
 
 	if err != nil {
 		log.Fatal(err)
